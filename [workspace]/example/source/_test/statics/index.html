@@ -1,0 +1,34 @@
+<html>
+	<head>					
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<script src="include/include.js"></script>			
+		<script src="includedrivers/testModule.js"></script>
+	</head>
+	<body>
+		<script>
+			var data=testModule.dataSync();	
+		</script>
+			This is the basic test Page.<br>
+			#1.Create a table,and the table is sortable.<br>
+				AP.table(document.body,data);<br>
+		<script>
+				AP.table(document.body,data);
+		</script>
+			#2.manipulate the data<br>
+				AP.table(document.body,AP.filter(data,function(tuple){return tuple["@name"]=="A";}));<br>	
+		<script>	
+				AP.table(document.body,AP.filter(data,function(tuple){return tuple["@name"]=="A";}));
+		
+				var arg=[$("<div>").appendTo(document.body)];AP.argpush(arg,data,"@name",["_seed","_runtime"]);arg.push({title:{text:"runtime"}});
+				highcharts_Driver.line.apply(null,arg);	
+					
+		</script>
+			This is how to create a 3D surface,with interpolation ofcause.<br>			
+			var data=[];for (var i=0;i<1000;i++)	data.push([x=Math.random()*20,y=Math.random()*20,Math.cos(Math.sqrt(x*x+y*y))]);<br>
+			elegans_driver.surface3($("&lt;div style='width:1000;height:1000'>").appendTo(document.body),data,10,10);<br>
+		<script>
+	var data=[];for (var i=0;i<1000;i++)	data.push([x=Math.random()*20,y=Math.random()*20,Math.cos(Math.sqrt(x*x+y*y))]);	
+	elegans_driver.surface3($("<div style='width:1000;height:1000'>").appendTo(document.body),data,10,10);					
+		</script>
+	</body>
+</html>
