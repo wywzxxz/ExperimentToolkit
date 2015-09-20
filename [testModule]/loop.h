@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "json/src/json.hpp"
+#include "[libs]/json/src/json.hpp"
 #include <windows.h>
 #include <psapi.h>
 #include <time.h>
@@ -44,6 +44,43 @@ struct Loop
 			fclose(fp);
 		}			
 	}	
+
+	
+	void test(const char * s,int seed)
+	{
+		if (argc>1) return;
+		char cmd[1024];
+		sprintf(cmd,"%s %d > ..\\..\\dist\\tmp ",s,seed);
+		int ret=system(cmd);
+		if (ret!=0)
+		{
+			fprintf(stderr,"test:error when generator input\n");exit(-1);
+		}
+		freopen("..\\..\\dist\\tmp","r",stdin);
+	}
+	void test(int seed)
+	{		
+		test("..\\..\\io\\input\\input.exe",seed);
+	}	
+	void test()
+	{
+		srand((unsigned int)time(0));
+		test("..\\_test\\input\\input.exe",rand());
+	}
+	
+	void Warn(const char *msg=NULL)
+	{
+		if(msg)	fprintf(stderr,"||||||||||||||||||||||[JUDGER:%s]||||||||||||||||||||||\n");
+	}
+	void Error(const char *msg=NULL,int status=2)
+	{
+		Warn(msg);exit(status);
+	}
+	
+	
+	
+	
+	
 	long old,now,cnl;
 	double cancletime(bool mode=false)
 	{
@@ -85,14 +122,6 @@ struct Loop
 		if (mode) return now-startmemory;
 		return now-old;		
 	}
-	void Warn(const char *msg=NULL)
-	{
-		if(msg)	fprintf(stderr,"||||||||||||||||||||||[JUDGER:%s]||||||||||||||||||||||\n"); 
-	}
-	void Error(const char *msg=NULL,int status=2)
-	{
-		Warn(msg);exit(status);
-	}	
 	private:		
 		int argc;
 		char** argv;

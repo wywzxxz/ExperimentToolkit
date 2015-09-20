@@ -1,5 +1,4 @@
 #Ö÷Ä¿Â¼
 #.gitignore  
 startcmd.bat
-
-
+/[workspace]/*

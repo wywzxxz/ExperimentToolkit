@@ -1,4 +1,4 @@
-#include "json/src/json.hpp"
+#include "[libs]/json/src/json.hpp"
 #include"String.h"
 /*
 ..\..\%2% "!inputcfg!" "!loopcfg!" "!resultfile!" !dtime! !el! "!tmp!" <output.txt

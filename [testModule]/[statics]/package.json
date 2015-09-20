@@ -1,0 +1,20 @@
+{
+  "name": "ExperimentToolkit",
+  "version": "0.0.0",
+  "description": "ExperimentToolkit result https://github.com/wywzxxz/ExperimentToolkit",
+  "main": "index.html",
+  "private": true,
+  "gypfile": true,
+  "dependencies": {
+    "bindings": "~1.2.1"
+  },
+  "window":{
+	"toolbar": true
+	}
+  ,"single-instance":false
+  ,"repository" :{
+	"type" : "git"
+	, "url" : "https://github.com/wywzxxz/ExperimentToolkit"
+  }
+
+}

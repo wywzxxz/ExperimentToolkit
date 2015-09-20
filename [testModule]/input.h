@@ -1,4 +1,4 @@
-#include "json/src/json.hpp"
+#include "[libs]/json/src/json.hpp"
 /*
 ..\..\%1% !seed! "!inputcfg!" > input.txt <tmp.txt
 */
@@ -31,7 +31,8 @@ struct Input
 			FILE * fp=fopen(argv[2],"w");
 			fprintf(fp,"%s",json.dump().c_str());
 			fclose(fp);
-		}		
+		}	
+		fclose(stdout);
 	}	
 	void Warn(const char *msg=NULL)
 	{

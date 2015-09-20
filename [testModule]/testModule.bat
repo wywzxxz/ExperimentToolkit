@@ -20,7 +20,6 @@ echo Judger :!output!
 
 set /a i=0-!argsnum!
 for %%x in (%*) do  (
-	CD %buildpath%\build
 	set /a i=1+!i!
 	if !i! GTR 0 (
 		echo                 No.!i!     %%x
@@ -163,6 +162,7 @@ goto :EOF
 		rd /s/q build_last 1>nul 2>nul
 		rename build build_last 1>nul 2>nul
 		call :recreateFolder build & cd build		
+		call %~dp0/copyNw
 		call %~dp0/copyGstatics
 		call %~dp0/copystatics
 		set t={"octave":"%~dp0Octave\Octave-3.8.2\bin\octave.exe"}		
